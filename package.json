@@ -1,0 +1,42 @@
+{
+    "name": "motherbrain-api",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node ./start_server",
+        "dev": "./node_modules/nodemon/bin/nodemon.js ./start_server",
+        "test-env": "PORT=9876 node ./start_server",
+        "test": "./node_modules/testem/testem.js xunit -g",
+        "migrate": "./node_modules/knex/bin/cli.js migrate:latest",
+        "seed": "./node_modules/knex/bin/cli.js seed:run",
+        "unit": "./node_modules/mocha/bin/mocha tests/unit/**/*.js",
+        "integration": "./node_modules/mocha/bin/mocha tests/integration/**/*.js",
+        "acceptance": "./node_modules/mocha/bin/mocha tests/acceptance/**/*.js"
+    },
+    "dependencies": {
+        "axios": "^0.16.1",
+        "body-parser": "~1.16.0",
+        "cookie-parser": "~1.4.3",
+        "cors": "^2.8.3",
+        "debug": "~2.6.0",
+        "dotenv": "^4.0.0",
+        "express": "~4.14.1",
+        "global": "^4.3.2",
+        "jsonapi-serializer": "^3.5.2",
+        "knex": "^0.12.9",
+        "morgan": "~1.7.0",
+        "objection": "^0.7.12",
+        "passport": "^0.3.2",
+        "pg": "^6.1.5",
+        "pluralize": "^4.0.0",
+        "serve-favicon": "~2.3.2"
+    },
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "mocha": "^3.4.1",
+        "nodemon": "^1.11.0",
+        "sinon": "^2.2.0",
+        "supertest": "^3.0.0",
+        "testem": "^1.16.1"
+    }
+}
