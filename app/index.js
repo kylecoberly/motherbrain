@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
+app.use("/api/v1/business-units", require("./routes/business-units"));
 app.use("/", require("./routes/index"));
 
 app.use(function(request, response, next){
