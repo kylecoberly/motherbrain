@@ -1,5 +1,4 @@
 var assert = require("assert");
-var sinon = require("sinon");
 
 describe("unit | business unit serialization", function(){
     describe("#business-unit-serializer", function(){

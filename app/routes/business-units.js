@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
-var businessUnitsController = require("../controllers/business-units");
 
-router.get("/", businessUnitsController);
+router.get("/:business_unit_id/cohorts", require("../controllers/business-unit-cohorts"));
+router.get("/", require("../controllers/business-units"));
 
 module.exports = router;

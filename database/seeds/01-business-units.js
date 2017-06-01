@@ -6,9 +6,29 @@ exports.seed = function(knex, Promise){
                 city: "Denver",
                 state: "Colorado"
             },{
-                label: "Miami WDI",
-                city: "Miami",
-                state: "Florida"
+                label: "Boulder WDI",
+                city: "Boulder",
+                state: "Colorado"
+            },{
+                label: "Seattle WDI",
+                city: "Seattle",
+                state: "Washington"
+            },{
+                label: "San Francisco WDI",
+                city: "San Francisco",
+                state: "California"
+            },{
+                label: "Phoenix WDI",
+                city: "Phoenix",
+                state: "Arizona"
+            },{
+                label: "Austin WDI",
+                city: "Austin",
+                state: "Texas"
+            },{
+                label: "New York WDI",
+                city: "New York City",
+                state: "New York"
             }]);
         });
 };

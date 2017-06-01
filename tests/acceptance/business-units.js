@@ -9,11 +9,13 @@ process.env.NODE_ENV = "test";
 describe("acceptance | business units", function(){
     describe("#API", function(){
         beforeEach(done => {
-            execute("npm run seed", done);
+            this.enableTimeouts(false);
+            execute("npm run reset-test-data", done);
         });
         it("displays a list of serialized business units", done => {
-            request(app).get("/api/v1/business-units")
-            .expect(200)
+            request(app)
+                .get("/api/v1/business-units")
+                .expect(200)
             .then(response => {
                 assert.deepEqual(response.body.data, [{
                     id: "1",
@@ -32,8 +34,8 @@ describe("acceptance | business units", function(){
                         state: "Florida"
                     }
                 }]);
-            });
-            done();
+                done();
+            }).catch(done);
         });
     });
 });

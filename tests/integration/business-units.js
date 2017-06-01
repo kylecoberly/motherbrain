@@ -6,11 +6,13 @@ process.env.NODE_ENV = "test";
 describe("integration | business units", function(){
     describe("#database", function(){
         beforeEach(done => {
-            execute("npm run seed", done);
+            execute("npm run reset-test-data", done);
         });
         it("retrieves a list of business units", done => {
-            var BusinessUnit = require("../../app/models/BusinessUnit.js");
-            BusinessUnit.query().then(businessUnits => {
+            require("../../app/models/BusinessUnit.js")
+                .query()
+                .select("id", "label", "city", "state")
+            .then(businessUnits => {
                 assert.deepEqual(businessUnits, [{
                     id: 1,
                     label: "Denver WDI",

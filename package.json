@@ -11,7 +11,8 @@
         "integration": "./node_modules/mocha/bin/mocha -wG --no-exit tests/integration/**/*.js",
         "acceptance": "./node_modules/mocha/bin/mocha -wG --no-exit tests/acceptance/**/*.js",
         "migrate": "./node_modules/knex/bin/cli.js migrate:latest",
-        "seed": "./node_modules/knex/bin/cli.js seed:run"
+        "seed": "./node_modules/knex/bin/cli.js seed:run",
+        "reset-test-data": "knex seed:run --env test && knex seed:run --env learn_development"
     },
     "dependencies": {
         "axios": "^0.16.1",
@@ -32,6 +33,7 @@
         "serve-favicon": "~2.3.2"
     },
     "devDependencies": {
+        "chai": "^4.0.0",
         "mocha": "^3.4.1",
         "nodemon": "^1.11.0",
         "sinon": "^2.2.0",
