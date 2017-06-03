@@ -23,7 +23,7 @@ Galvanize staff, student, and cohort API aggregator. Uses:
 
 * Mocha/Chai and Sinon for unit and integration testing
 * Supertest for acceptance testing
-1. `npm test` to run Testem on all tests
+1. `npm test` to run all tests
 1. `npm run [test-level]` to run individual test levels, where [level] is `unit`|`integration`|`acceptance`
 1. `npm run find-test || [search-term]` to grep for specific tests
 
@@ -32,3 +32,5 @@ Galvanize staff, student, and cohort API aggregator. Uses:
 * `/api/v1/business-units`
 * `/api/v1/business-units/:id/cohorts`
 * `/api/v1/cohorts/:id`
+* `/api/v1/standards`
+* `/api/v1/standards/:id`

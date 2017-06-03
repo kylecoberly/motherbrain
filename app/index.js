@@ -15,6 +15,7 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use("/api/v1/business-units", require("./routes/business-units"));
+app.use("/api/v1/standards", require("./routes/standards"));
 app.use("/", require("./routes/index"));
 
 app.use(function(request, response, next){
