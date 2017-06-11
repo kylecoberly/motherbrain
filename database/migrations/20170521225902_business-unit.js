@@ -1,5 +1,5 @@
 exports.up = function(knex, Promise) {
-    return knex.schema.createTable("business-unit", function(businessUnit){
+    return knex.schema.createTable("business_unit", function(businessUnit){
         businessUnit.increments();
         businessUnit.string("label");
         businessUnit.string("city");
@@ -8,5 +8,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-    return knex.schema.dropTableIfExists("business-unit");
+    return knex.schema.dropTableIfExists("business_unit");
 };

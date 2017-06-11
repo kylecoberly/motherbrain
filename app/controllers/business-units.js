@@ -1,16 +1,16 @@
 require("dotenv").load();
-var BusinessUnit = require("../models/BusinessUnit");
-var BusinessUnitSerializer = require("../models/serializers/business-unit");
 
-module.exports = function(request, response){
-    BusinessUnit
-        .query()
-        .select("id", "label", "city", "state")
-    .then(businessUnits => {
-        response.json(
-            BusinessUnitSerializer[
-                request.query.serializer || process.env.DEFAULT_SERIALIZER
-            ].serialize(businessUnits)
-        );
-    });
+var respond = require("../utils/serialized-response")
+    .bind(null, require("../models/serializers/business-unit"));
+
+var BusinessUnit = require("../models/BusinessUnit.js");
+
+module.exports = {
+    multiple: function(request, response){
+        BusinessUnit.getAll().then(respond.bind(null, request, response));
+    },
+    single: function(request, response){
+        BusinessUnit.getOne(request.params.business_unit_id)
+        .then(respond.bind(null, request, response));
+    }
 };

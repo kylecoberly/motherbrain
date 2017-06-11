@@ -1,13 +1,13 @@
-var assert = require("assert");
-var request = require("supertest");
-var execute = require("child_process").exec;
-
-var app = require("../../app/index");
+const assert = require("assert");
+const request = require("supertest");
+const execute = require("child_process").exec;
 
 process.env.NODE_ENV = "test";
 
-describe.skip("acceptance | example", function(){
-    describe("#API", function(){
+const app = require("../../app/index");
+
+describe.skip("acceptance - /example", function(){
+    describe("#GET /example", function(){
         beforeEach(done => {
             execute("npm run seed", done);
         });

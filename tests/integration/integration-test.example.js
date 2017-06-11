@@ -3,9 +3,10 @@ var execute = require("child_process").exec;
 
 process.env.NODE_ENV = "test";
 
-describe.skip("integration | example", function(){
+describe.skip("integration - example", function(){
     describe("#database", function(){
         beforeEach(done => {
+            this.enableTimeouts(false);
             execute("npm run seed", done);
         });
         it("retrieves a list", done => {

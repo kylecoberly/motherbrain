@@ -1,8 +1,8 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable("cohort", function(cohort){
         cohort.increments();
-        cohort.integer("business-unit-id").references("id").inTable("business-unit");
-        cohort.integer("learn-id");
+        cohort.integer("business_unit_id").references("id").inTable("business_unit");
+        cohort.integer("learn_id");
     });  
 };
 

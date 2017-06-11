@@ -1,11 +1,11 @@
 var {Model} = require("objection");
 
-class LearnCohort extends Model {
+class LocalCohort extends Model {
     static get tableName(){
-        return "cohorts";
+        return "cohort";
     }
     static get columns(){
-        return ["id", "name", "start_date", "end_date"];
+        return ["id", "business_unit_id", "learn_id"];
     }
     static getOne(id){
         return this.query()
@@ -19,9 +19,10 @@ class LearnCohort extends Model {
             .whereIn("id", ids);
     }
     static getAll(){
-        return this.query().select(this.columns);
+        return this.query()
+            .select(this.columns)
     }
 }
-LearnCohort.knex(require("../../database/learn_connection"));
+LocalCohort.knex(require("../../database/connection"));
 
-module.exports = LearnCohort;
+module.exports = LocalCohort;

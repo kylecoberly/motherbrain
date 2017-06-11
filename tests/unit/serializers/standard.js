@@ -1,10 +1,10 @@
-var assert = require("assert");
+const assert = require("assert");
+const serializer = require("../../../app/models/serializers/standard");
 
-describe("unit | standard serialization", function(){
-    describe("#standard-serializer", function(){
-        var StandardSerializer = require("../../app/models/serializers/standard");
+describe("unit - serializer - standard", function(){
+    describe("#JSON-API", function(){
         it("can serialize standards to JSON-API", done => {
-            var serializedData = StandardSerializer["JSON-API"].serialize([{
+            var serializedData = serializer["JSON-API"].serialize([{
                 id: 1,
                 "description": "Description 1",
                 "success_criteria": "Success Criteria 1",

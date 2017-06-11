@@ -1,7 +1,7 @@
 var assert = require("assert");
 var sinon = require("sinon");
 
-describe.skip("unit | example", function(){
+describe.skip("unit - example", function(){
     describe("#controller", function(){
         var controller = require("../../app/controllers/index");
         it("responds with success", done => {

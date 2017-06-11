@@ -1,20 +1,21 @@
-var assert = require("assert");
-var request = require("supertest");
-var execute = require("child_process").exec;
-
-var app = require("../../app/index");
+const assert = require("assert");
+const request = require("supertest");
+const execute = require("child_process").exec;
 
 process.env.NODE_ENV = "test";
+const VERSION = "/api/v1";
 
-describe("acceptance | standards", function(){
-    describe("#API", function(){
-        beforeEach(done => {
-            this.enableTimeouts(false);
-            execute("npm run reset-test-data", done);
-        });
-        it("displays a list of all standards", done => {
+const app = require("../../app/index");
+
+describe("acceptance - /standards", function(){
+    beforeEach(done => {
+        this.enableTimeouts(false);
+        execute("npm run reset-test-data", done);
+    });
+    describe("#GET /api/v1/standards", function(){
+        it("displays a list of all serialized standards", done => {
             request(app)
-                .get("/api/v1/standards")
+                .get(`${VERSION}/standards`)
                 .expect(200)
             .then(response => {
                 assert.deepEqual(response.body.data, [{
@@ -37,9 +38,11 @@ describe("acceptance | standards", function(){
                 done();
             }).catch(done);
         });
-        it("displays a single standard", done => {
+    });
+    describe("#GET /api/v1/standards/:id", function(){
+        it("displays a single serialized standard", done => {
             request(app)
-                .get("/api/v1/standards/1")
+                .get(`${VERSION}/standards/1`)
                 .expect(200)
             .then(response => {
                 assert.deepEqual(response.body.data, {

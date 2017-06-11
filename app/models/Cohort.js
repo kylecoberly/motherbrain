@@ -1,39 +1,47 @@
 var LearnCohort = require("./LearnCohort");
+var LocalCohort = require("./LocalCohort");
 var {Model} = require("objection");
+var {find, map} = require("lodash");
 var deserializeLearnCohort = require("./deserializers/learn-cohort");
 
 class Cohort extends Model {
-    static get tableName(){
-        return "cohort";
-    }
-    static getLocalCohort(cohortId){
-        return this.query()
-            .select("id", "business-unit-id", "learn-id")
-            .where("id", cohortId)
-            .first();
-    }
-    static getLearnCohort(databaseConnection, cohortId){
-        return databaseConnection.query()
-            .select("name", "start_date", "end_date")
-            .where("id", cohortId)
-            .first();
-    }
-    static getCohort(cohortId){
-        return this.getLocalCohort.call(this, cohortId).then(localData => {
-            return this.getLearnCohort(LearnCohort, localData["learn-id"])
+    static getOne(id){
+        return LocalCohort.getOne(id)
+        .then(localCohort => {
+            return LearnCohort.getOne(localCohort.learn_id)
             .then(deserializeLearnCohort)
-            .then(learnData => Object.assign({}, localData, learnData));
+            .then(combine.bind(null, localCohort));
         }).catch(console.error);
     }
-    static getCohortByBusinessUnit(businessUnitId){
-        return this.query()
-            .pluck("id")
-            .where("business-unit-id", businessUnitId)
-        .then(cohortIds => {
-            return Promise.all(cohortIds.map(this.getCohort.bind(this)))
+    static getSome(ids){
+        return LocalCohort.getSome(ids)
+        .then(localCohorts => {
+            var learnCohortIds = map(localCohorts, "learn_id");
+            return LearnCohort.getSome(learnCohortIds)
+            .then(deserializeLearnCohort)
+            .then(combineCohorts.bind(null, localCohorts));
         }).catch(console.error);
+    }
+    static getOneByBusinessUnit(businessUnitId){
+        return LocalCohort.query()
+            .pluck("id")
+            .where("business_unit_id", businessUnitId)
+        .then(this.getSome.bind(this))
+        .catch(console.error);
     }
 }
-Cohort.knex(require("../../database/connection"));
+
+function combineCohorts(localCohorts, learnCohorts){
+    return localCohorts.map(localCohort => {
+        return combine(
+            localCohort,
+            find(learnCohorts, ["id", localCohort.learn_id])
+        );
+    });
+}
+
+function combine(...objects){
+    return Object.assign({}, ...objects);
+}
 
 module.exports = Cohort;

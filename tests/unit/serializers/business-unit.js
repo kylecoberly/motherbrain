@@ -1,10 +1,10 @@
-var assert = require("assert");
+const assert = require("assert");
+const serializer = require("../../../app/models/serializers/business-unit");
 
-describe("unit | business unit serialization", function(){
-    describe("#business-unit-serializer", function(){
-        var businessUnitSerializer = require("../../app/models/serializers/business-unit");
+describe("unit - serializer - business-unit", function(){
+    describe("#JSON-API", function(){
         it("can serialize business units to JSON-API", done => {
-            var serializedData = businessUnitSerializer["JSON-API"].serialize([{
+            var serializedData = serializer["JSON-API"].serialize([{
                 id: 1,
                 label: "Denver WDI",
                 city: "Denver",

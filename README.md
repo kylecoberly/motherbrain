@@ -29,8 +29,17 @@ Galvanize staff, student, and cohort API aggregator. Uses:
 
 ## Endpoints
 
+### Business Units
+
 * `/api/v1/business-units`
-* `/api/v1/business-units/:id/cohorts`
-* `/api/v1/cohorts/:id`
+* `/api/v1/business-units/:business_unit_id/cohorts`
+* `/api/v1/business-units/:business_unit_id/cohorts/:cohort_id`
+
+### Cohorts
+
+* `/api/v1/cohorts/:cohort_id`
+
+### Standards
+
 * `/api/v1/standards`
 * `/api/v1/standards/:id`

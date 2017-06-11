@@ -1,4 +1,10 @@
-module.exports = function deserializeLearnCohort(cohort){
+module.exports = function(cohorts){
+    return Array.isArray(cohorts) 
+        ? cohorts.map(deserializeLearnCohort)
+        : deserializeLearnCohort(cohorts);
+}
+
+function deserializeLearnCohort(cohort){
     if (cohort && cohort.start_date){
         cohort.start_date = cohort.start_date.toISOString();
     }
