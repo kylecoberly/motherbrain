@@ -29,7 +29,8 @@ describe("acceptance - /students", function(){
                         "phone": "777-777-7777",
                         "github": "kylecoberly",
                         "linkedin": "kylecoberly",
-                        "galvanize-id": "1"
+                        "galvanize-id": "1",
+                        "avatar": "https://www.google.com"
                     }
                 },{
                     id: "2",
@@ -42,7 +43,8 @@ describe("acceptance - /students", function(){
                         "phone": "777-777-7777",
                         "github": "dannyfritz",
                         "linkedin": "dannyfritz",
-                        "galvanize-id": "2"
+                        "galvanize-id": "2",
+                        "avatar": "https://www.google.com"
                     }
                 }]);
                 done();
@@ -66,7 +68,8 @@ describe("acceptance - /students", function(){
                         "phone": "777-777-7777",
                         "github": "kylecoberly",
                         "linkedin": "kylecoberly",
-                        "galvanize-id": 1
+                        "galvanize-id": 1,
+                        "avatar": "https://www.google.com"
                     }
                 });
                 done();

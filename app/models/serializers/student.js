@@ -10,7 +10,8 @@ module.exports = {
             "twitter",
             "github",
             "linkedin",
-            "galvanize_id"
+            "galvanize_id",
+            "avatar"
         ]
     })
 };

@@ -22,7 +22,8 @@ describe("integration - model - Student", function(){
                     phone: "777-777-7777",
                     github: "kylecoberly",
                     linkedin: "kylecoberly",
-                    galvanize_id: 1
+                    galvanize_id: 1,
+                    avatar: "https://www.google.com"
                 },{
                     id: 2,
                     first_name: "Danny",
@@ -32,7 +33,8 @@ describe("integration - model - Student", function(){
                     phone: "777-777-7777",
                     github: "dannyfritz",
                     linkedin: "dannyfritz",
-                    galvanize_id: 2
+                    galvanize_id: 2,
+                    avatar: "https://www.google.com"
                 }]);
                 done();
             }).catch(done);
@@ -50,7 +52,8 @@ describe("integration - model - Student", function(){
                     phone: "777-777-7777",
                     github: "kylecoberly",
                     linkedin: "kylecoberly",
-                    galvanize_id: 1
+                    galvanize_id: 1,
+                    avatar: "https://www.google.com"
                 });
                 done();
             }).catch(done);

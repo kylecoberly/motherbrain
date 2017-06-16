@@ -9,7 +9,8 @@ exports.seed = function(knex, Promise){
                 phone: "777-777-7777",
                 github_username: "kylecoberly",
                 linkedin: "kylecoberly",
-                galvanize_id: 1
+                galvanize_id: 1,
+                avatar: "https://www.google.com"
             },{
                 first_name: "Danny",
                 last_name: "Fritz",
@@ -18,7 +19,8 @@ exports.seed = function(knex, Promise){
                 phone: "777-777-7777",
                 github_username: "dannyfritz",
                 linkedin: "dannyfritz",
-                galvanize_id: 2
+                galvanize_id: 2,
+                avatar: "https://www.google.com"
             }]);
         });
 };

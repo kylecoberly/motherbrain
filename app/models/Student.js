@@ -14,6 +14,7 @@ class Student extends Model {
             "github_username AS github",
             "twitter",
             "linkedin",
+            "avatar",
             "galvanize_id"
         ];
     }
