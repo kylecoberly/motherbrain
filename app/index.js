@@ -17,6 +17,7 @@ app.use(cors());
 app.use("/api/v1/cohorts", require("./routes/cohorts"));
 app.use("/api/v1/business-units", require("./routes/business-units"));
 app.use("/api/v1/standards", require("./routes/standards"));
+app.use("/api/v1/students", require("./routes/students"));
 app.use("/", require("./routes/index"));
 
 app.use(function(request, response, next){
