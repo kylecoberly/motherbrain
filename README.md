@@ -42,4 +42,14 @@ Galvanize staff, student, and cohort API aggregator. Uses:
 ### Standards
 
 * `/api/v1/standards`
-* `/api/v1/standards/:id`
+* `/api/v1/standards/:standard_id`
+
+### Performances
+
+* `/api/v1/performances`
+* `/api/v1/performances/:performance_id`
+
+### Daily Plans
+
+* `/api/v1/daily-plans`
+* `/api/v1/daily-plans/:daily_plan_id`
