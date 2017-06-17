@@ -14,11 +14,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
-app.use("/api/v1/cohorts", require("./routes/cohorts"));
-app.use("/api/v1/business-units", require("./routes/business-units"));
-app.use("/api/v1/standards", require("./routes/standards"));
-app.use("/api/v1/students", require("./routes/students"));
-app.use("/api/v1/performances", require("./routes/performances"));
+const VERSION = "/api/v1";
+var endpoints = [
+    "cohorts",
+    "business-units",
+    "standards",
+    "students",
+    "performances",
+    "daily-plans"
+];
+endpoints.forEach(endpoint => app.use(
+    `${VERSION}/${endpoint}`,
+    require(`./routes/${endpoint}`)
+));
 app.use("/", require("./routes/index"));
 
 app.use(function(request, response, next){

@@ -1,7 +1,8 @@
 var express = require("express");
 var router = express.Router();
+var controller = require("../controllers/students");
 
-router.get("/", require("../controllers/students").multiple);
-router.get("/:student_id", require("../controllers/students").single);
+router.get("/", controller.multiple);
+router.get("/:student_id", controller.single);
 
 module.exports = router;
