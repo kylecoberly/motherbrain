@@ -21,12 +21,10 @@ class Student extends Model {
     static getAll(){
         return this.query()
             .select(this.columns)
-            .from("users");
     }
     static getOne(id){
         return this.query()
             .select(this.columns)
-            .from("users")
             .where("id", id)
             .first();
     }

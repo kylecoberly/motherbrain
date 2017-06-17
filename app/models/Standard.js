@@ -13,7 +13,7 @@ class Standard extends Model {
     static getOne(id){
         return this.query()
             .select(this.columns)
-            .from("standards")
+            .from(this.tableName)
             .innerJoin(...this.standardsJoin)
             .where("standards.id", id)
             .first();
@@ -21,7 +21,7 @@ class Standard extends Model {
     static getAll(){
         return this.query()
             .select(this.columns)
-            .from("standards")
+            .from(this.tableName)
             .innerJoin(...this.standardsJoin);
     }
 }

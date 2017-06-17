@@ -16,12 +16,10 @@ class Performance extends Model {
     static getAll(){
         return this.query()
             .select(this.columns)
-            .from(this.tableName);
     }
     static getOne(id){
         return this.query()
             .select(this.columns)
-            .from(this.tableName)
             .where("id", id)
             .first();
     }

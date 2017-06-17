@@ -1,5 +1,4 @@
 var {Model} = require("objection");
-Model.knex(require("../../database/connection"));
 
 class BusinessUnit extends Model {
     static get tableName(){
