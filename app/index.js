@@ -21,7 +21,8 @@ var endpoints = [
     "standards",
     "students",
     "performances",
-    "daily-plans"
+    "daily-plans",
+    "instructors"
 ];
 endpoints.forEach(endpoint => app.use(
     `${VERSION}/${endpoint}`,

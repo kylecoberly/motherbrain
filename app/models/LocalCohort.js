@@ -22,6 +22,18 @@ class LocalCohort extends Model {
         return this.query()
             .select(this.columns)
     }
+    static get relationMappings(){
+        return {
+            learnCohort: {
+                relation: Model.BelongsToOneRelation,
+                modelClass: `${__dirname}/LearnCohort`,
+                join: {
+                    from: "cohort.learn_id",
+                    to: "cohorts.id"
+                }
+            }
+        }
+    }
 }
 LocalCohort.knex(require("../../database/connection"));
 

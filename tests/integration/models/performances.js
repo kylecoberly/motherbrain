@@ -6,7 +6,7 @@ process.env.NODE_ENV = "test";
 const Performance = require("../../../app/models/Performance.js");
 
 describe("integration - model - Performance", function(){
-    beforeEach(done => {
+    before(done => {
         this.enableTimeouts(false);
         execute("npm run reset-test-data", done);
     });

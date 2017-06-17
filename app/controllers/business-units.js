@@ -7,10 +7,10 @@ var BusinessUnit = require("../models/BusinessUnit.js");
 
 module.exports = {
     multiple: function(request, response){
-        BusinessUnit.getAll().then(respond.bind(null, request, response));
+        BusinessUnit.getAllWithRelations().then(respond.bind(null, request, response));
     },
     single: function(request, response){
-        BusinessUnit.getOne(request.params.business_unit_id)
+        BusinessUnit.getOneWithRelations(request.params.business_unit_id)
         .then(respond.bind(null, request, response));
     }
 };

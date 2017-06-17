@@ -7,7 +7,7 @@ const LearnCohort = require("../../../app/models/LearnCohort.js");
 const Serializer = require("../../../app/models/deserializers/learn-cohort");
 
 describe("integration - model - LearnCohort", function(){
-    beforeEach(done => {
+    before(done => {
         this.enableTimeouts(false);
         execute("npm run reset-test-data", done);
     });

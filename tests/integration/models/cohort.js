@@ -5,7 +5,7 @@ process.env.NODE_ENV = "test";
 const Cohort = require("../../../app/models/Cohort");
 
 describe("integration - model - Cohort", function(){
-    beforeEach(done => {
+    before(done => {
         this.enableTimeouts(false);
         execute("npm run reset-test-data", done);
     });

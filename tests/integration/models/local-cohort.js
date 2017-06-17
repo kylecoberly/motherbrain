@@ -6,7 +6,7 @@ process.env.NODE_ENV = "test";
 const LocalCohort = require("../../../app/models/LocalCohort.js");
 
 describe("integration - model - LocalCohort", function(){
-    beforeEach(done => {
+    before(done => {
         this.enableTimeouts(false);
         execute("npm run reset-test-data", done);
     });

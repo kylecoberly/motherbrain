@@ -6,7 +6,7 @@ process.env.NODE_ENV = "test";
 const Standard = require("../../../app/models/Standard.js");
 
 describe("integration - model - Standard", function(){
-    beforeEach(done => {
+    before(done => {
         this.enableTimeouts(false);
         execute("npm run reset-test-data", done);
     });

@@ -8,7 +8,7 @@ const VERSION = "/api/v1";
 const app = require("../../app/index");
 
 describe("acceptance - /daily-plans", function(){
-    beforeEach(done => {
+    before(done => {
         this.enableTimeouts(false);
         execute("npm run reset-test-data", done);
     });

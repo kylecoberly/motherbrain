@@ -53,3 +53,8 @@ Galvanize staff, student, and cohort API aggregator. Uses:
 
 * `/api/v1/daily-plans`
 * `/api/v1/daily-plans/:daily_plan_id`
+
+### Instructors
+
+* `/api/v1/instructors`
+* `/api/v1/instructors/:instructor_id`

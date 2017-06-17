@@ -6,7 +6,7 @@ process.env.NODE_ENV = "test";
 const DailyPlan = require("../../../app/models/DailyPlan");
 
 describe("integration - model - DailyPlan", function(){
-    beforeEach(done => {
+    before(done => {
         this.enableTimeouts(false);
         execute("npm run reset-test-data", done);
     });
@@ -21,7 +21,7 @@ describe("integration - model - DailyPlan", function(){
                     title: "Title"
                 },{
                     id: 2,
-                    cohort_id: 1,
+                    cohort_id: 2,
                     date: "2018-03-15T06:00:00.000Z",
                     description: "Description",
                     title: "Title"

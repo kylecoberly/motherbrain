@@ -6,7 +6,7 @@ process.env.NODE_ENV = "test";
 const Student = require("../../../app/models/Student.js");
 
 describe("integration - model - Student", function(){
-    beforeEach(done => {
+    before(done => {
         this.enableTimeouts(false);
         execute("npm run reset-test-data", done);
     });
