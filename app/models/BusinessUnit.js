@@ -32,14 +32,18 @@ class BusinessUnit extends Model {
             }
         ).then(businessUnits => {
             return businessUnits.map(businessUnit => {
-                businessUnit.cohorts = businessUnit.cohorts
-                    .map(flattenProperty.bind(null, "learnCohort"))
-                    .map(require("./deserializers/learn-cohort"));
-                businessUnit.instructors = businessUnit.instructors
-                    .map(require("./deserializers/instructor"));
+                businessUnit.cohorts = this.deserializeCohorts(businessUnit.cohorts);
+                businessUnit.instructors = this.deserializeInstructors(businessUnit.instructors);
                 return businessUnit;
             });
         });
+    }
+    static deserializeCohorts(cohorts){
+        return cohorts.map(flattenProperty.bind(null, "learnCohort"))
+            .map(require("./deserializers/learn-cohort"));
+    }
+    static deserializeInstructors(instructors){
+        return instructors.map(require("./deserializers/instructor"));
     }
     static get relationMappings(){
         return {

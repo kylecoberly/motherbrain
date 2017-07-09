@@ -12,7 +12,7 @@ describe("acceptance - /cohorts", function(){
         this.enableTimeouts(false);
         execute("npm run reset-test-data", done);
     });
-    describe("#GET /cohorts/:id", function(){
+    xdescribe("#GET /cohorts/:id", function(){
         it("displays a single serialized cohort", done => {
             request(app)
                 .get(`${VERSION}/cohorts/1`)
@@ -27,6 +27,14 @@ describe("acceptance - /cohorts", function(){
                         "start-date": "2017-01-01T07:00:00.000Z",
                         "end-date": "2017-07-01T06:00:00.000Z",
                         "learn-id": 1
+                    },
+                    relationships: {
+                        "lead-instructor": {
+                            data: {
+                                type: "instructor",
+                                id: "1"
+                            }
+                        }
                     }
                 });
                 done();
