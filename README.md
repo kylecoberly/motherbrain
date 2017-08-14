@@ -1,6 +1,10 @@
 # Motherbrain API
 
-Galvanize staff, student, and cohort API aggregator. Uses:
+Galvanize staff, student, and cohort API aggregator.
+
+Deployed URL: http://galvanize-motherbrain.herokuapp.com/
+
+Uses:
 
 ## Technologies
 
@@ -19,7 +23,7 @@ Galvanize staff, student, and cohort API aggregator. Uses:
 1. `npm start` to run production build
 1. `npm run dev` to run locally
 
-## Testing 
+## Testing
 
 * Mocha/Chai and Sinon for unit and integration testing
 * Supertest for acceptance testing
