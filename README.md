@@ -13,13 +13,13 @@ Galvanize staff, student, and cohort API aggregator. Uses:
 
 ## Setup
 
-1. `yarn` or `npm install
+1. `yarn` or `npm install`
 1. Copy `.env.example` to `.env` and replace the values
 1. `npm run migrate && npm run seed` to populate the database
 1. `npm start` to run production build
 1. `npm run dev` to run locally
 
-## Testing 
+## Testing
 
 * Mocha/Chai and Sinon for unit and integration testing
 * Supertest for acceptance testing
@@ -38,6 +38,11 @@ Galvanize staff, student, and cohort API aggregator. Uses:
 ### Cohorts
 
 * `/api/v1/cohorts/:cohort_id`
+
+### Students
+
+* `/api/v1/students`
+* `/api/v1/students/:student_id`
 
 ### Standards
 
