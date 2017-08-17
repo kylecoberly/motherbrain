@@ -1,6 +1,10 @@
 # Motherbrain API
 
-Galvanize staff, student, and cohort API aggregator. Uses:
+Galvanize staff, student, and cohort API aggregator.
+
+Deployed URL: http://galvanize-motherbrain.herokuapp.com/
+
+Uses:
 
 ## Technologies
 
