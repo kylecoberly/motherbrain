@@ -13,6 +13,12 @@ class LocalCohort extends Model {
             .where("id", id)
             .first();
     }
+    static getOneByLearnId(id){
+        return this.query()
+            .select(this.columns)
+            .where("learn_id", id)
+            .first();
+    }
     static getSome(ids){
         return this.query()
             .select(this.columns)

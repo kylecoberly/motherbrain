@@ -35,9 +35,12 @@ Uses:
 
 ### Business Units
 
+Business Units are programs: Denver WDI (1), Boulder WDI (2), etc.
+
 * `/api/v1/business-units`
+* `/api/v1/business-units/:business_unit_id`
 * `/api/v1/business-units/:business_unit_id/cohorts`
-* `/api/v1/business-units/:business_unit_id/cohorts/:cohort_id`
+* `/api/v1/business-units/:business_unit_id/cohorts/:id`
 
 ### Cohorts
 
