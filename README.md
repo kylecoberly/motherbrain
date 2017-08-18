@@ -27,6 +27,7 @@ Uses:
 Testing can be setup using:
 
 1. `createdb motherbrain-test`
+1. `createdb learn`
 1. `npm run migrate:test && npm run seed:test`
 1. `npm run migrate:dev && npm run seed:dev`
 
@@ -36,7 +37,7 @@ Testing can be setup using:
 * Supertest for acceptance testing
 1. `npm test` to run all tests
 1. `npm run [test-level]` to run individual test levels, where [level] is `unit`|`integration`|`acceptance`
-1. `npm run find-test || [search-term]` to grep for specific tests
+1. `npm run find-test [search-term]` to grep for specific tests
 
 ## Endpoints
 
