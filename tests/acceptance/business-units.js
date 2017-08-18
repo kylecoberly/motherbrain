@@ -3,6 +3,7 @@ const request = require("supertest");
 const execute = require("child_process").exec;
 
 const businessUnitFixtures = require("../fixtures/business-units");
+const studentsFixture = require("../fixtures/students");
 
 process.env.NODE_ENV = "test";
 const VERSION = "/api/v1";
@@ -33,6 +34,18 @@ describe("acceptance - /business-units", function(){
                 .expect(200)
             .then(response => {
                 assert.deepEqual(response.body.data, businessUnitFixtures.JSONAPI.data[0]);
+                done();
+            }).catch(done);
+        });
+    });
+
+    describe("#GET /business-units/:id/cohorts/:cohort_id/", function(){
+        it("displays a list of cohorts' students", done => {
+            request(app)
+                .get(`${VERSION}/business-units/1/cohorts/1/students`)
+                .expect(200)
+            .then(response => {
+                assert.deepEqual(response.body.data, studentsFixture.JSONAPI.cohort1Students.data);
                 done();
             }).catch(done);
         });
