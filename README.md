@@ -50,6 +50,8 @@ Business Units are programs: Denver WDI (1), Boulder WDI (2), etc.
 
 * `/api/v1/students`
 * `/api/v1/students/:student_id`
+* `/api/v1/business-units/:business_unit_id/cohorts/:cohort_id/students`
+* `/api/v1/cohorts/:cohort_id/students`
 
 ### Standards
 

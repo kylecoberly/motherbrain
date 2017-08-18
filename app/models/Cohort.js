@@ -1,5 +1,6 @@
 var LearnCohort = require("./LearnCohort");
 var LocalCohort = require("./LocalCohort");
+var Student = require("./Student");
 var {Model} = require("objection");
 var {find, map} = require("lodash");
 var deserializeLearnCohort = require("./deserializers/learn-cohort");
@@ -28,6 +29,9 @@ class Cohort extends Model {
             .where("business_unit_id", businessUnitId)
         .then(this.getSome.bind(this))
         .catch(console.error);
+    }
+    static getStudents(id) {
+        return Student.getByCohort(id);
     }
 }
 

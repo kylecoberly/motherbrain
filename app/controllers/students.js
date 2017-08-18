@@ -13,5 +13,9 @@ module.exports = {
     single: function(request, response){
         Student.getOne(request.params.student_id)
         .then(respond.bind(null, request, response));
+    },
+    byCohort: function(request, response){
+        Student.getByCohort(request.params.cohort_id)
+        .then(respond.bind(null, request, response));
     }
 }
