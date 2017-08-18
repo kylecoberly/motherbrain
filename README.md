@@ -19,9 +19,16 @@ Uses:
 
 1. `yarn` or `npm install`
 1. Copy `.env.example` to `.env` and replace the values
+1. `createdb motherbrain`
 1. `npm run migrate && npm run seed` to populate the database
 1. `npm start` to run production build
 1. `npm run dev` to run locally
+
+Testing can be setup using:
+
+1. `createdb motherbrain-test`
+1. `npm run migrate:test && npm run seed:test`
+1. `npm run migrate:dev && npm run seed:dev`
 
 ## Testing
 
