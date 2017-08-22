@@ -6,6 +6,7 @@ process.env.NODE_ENV = "test";
 const VERSION = "/api/v1";
 
 const app = require("../../app/index");
+const studentsFixture = require("../fixtures/students");
 
 describe("acceptance - /cohorts", function(){
     before(done => {
@@ -138,6 +139,17 @@ describe("acceptance - /cohorts", function(){
                         }
                     }
                 }]);
+                done();
+            }).catch(done);
+        });
+    });
+    describe("#GET /cohorts/1/students", function(){
+        it("displays a list of cohorts' students", done => {
+            request(app)
+                .get(`${VERSION}/cohorts/1/students`)
+                .expect(200)
+            .then(response => {
+                assert.deepEqual(response.body.data, studentsFixture.JSONAPI.cohort1Students.data);
                 done();
             }).catch(done);
         });
