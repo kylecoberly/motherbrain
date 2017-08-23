@@ -6,7 +6,7 @@ var deserializeLearnCohort = require("./deserializers/learn-cohort");
 
 class Cohort extends Model {
     static getOne(id){
-        return LocalCohort.getOne(id)
+        return LocalCohort.getOneByLearnId(id)
         .then(localCohort => {
             return LearnCohort.getOne(localCohort.learn_id)
             .then(deserializeLearnCohort)
