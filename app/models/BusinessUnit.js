@@ -30,11 +30,13 @@ class BusinessUnit extends Model {
                 learnCohortColumns: builder => builder.select(LearnCohort.columns),
                 instructorColumns: builder => builder.select(Instructor.columns)
             }
-        ).then(businessUnits => {
-            return businessUnits.map(businessUnit => {
-                businessUnit.cohorts = this.deserializeCohorts(businessUnit.cohorts);
-                businessUnit.instructors = this.deserializeInstructors(businessUnit.instructors);
-                return businessUnit;
+        ).then(this.normalizeRelations.bind(this));
+    }
+    static normalizeRelations(businessUnits){
+        return businessUnits.map(businessUnit => {
+            return Object.assign({}, businessUnit, {
+                cohorts: this.deserializeCohorts(businessUnit.cohorts),
+                instructors: this.deserializeInstructors(businessUnit.instructors),
             });
         });
     }
